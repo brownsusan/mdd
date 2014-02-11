@@ -1,10 +1,10 @@
-<div ng-controller="AdminCtrl">
-	<label>Project Title</label>
-	<input type="text" class="title" placeholder="Project Title"/>
+<div ng-controller="AdminCtrl" class="container">
+	<label>Project Title</label><br />
+	<input type="text" class="title form-control" placeholder="Project Title"/><br /><br /><br />
 	<label>Project Image</label>
-	<input type="file" class="imgUrl"/>
-	<label>Project Description</label>
-	<textarea class="description" placeholder="Project Description"></textarea>
+	<input type="file" class="imgUrl form-control"/><br /><br /><br />
+	<label>Project Description</label><br />
+	<textarea class="description form-control" placeholder="Project Description"></textarea><br /><br /><br />
 	<button class="btn btn-lg btn-success" ng-click="addProject()">
 		Submit Project
 	</button>

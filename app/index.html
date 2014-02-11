@@ -25,7 +25,7 @@
 		<!--[if lt IE 7]>
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -42,34 +42,10 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#">Link</a>
+							<a ng-hide="loginObj.user" ng-click="loginObj.$login('github')">Login with github</a>
 						</li>
 						<li>
-							<a href="#">Link</a>
-						</li>
-						<li>
-							<a href="#">Link</a>
-						</li>
-						<li>
-							<a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-							</ul>
+							<a ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout, {{loginObj.user.username}}</a>
 						</li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -111,6 +87,7 @@
 		<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="bower_components/firebase/firebase.js"></script>
+		<script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
 		<script src="bower_components/angularfire/angularfire.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
