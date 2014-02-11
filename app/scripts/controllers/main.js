@@ -14,20 +14,18 @@ angular.module('mddApp').controller('ProjCtrl', function($scope, FireConn, $rout
 });
 
 angular.module('mddApp').controller('AdminCtrl', function($scope, FireConn, $routeParams) {
-	//get the values
-	var title = $('input.title').text();
-	var imgUrl = $('.imgUrl').val();
-	var description = $('.description').text();
-	//set a variable for the object
-	$scope.newProject = {
-		title : title,
-		imgUrl : imgUrl,
-		description : description
-	};
-	//add the project
 	$scope.projects = FireConn.$child('projects');
 	$scope.addProject = function() {
 		console.log('running');
+		var title = $('input.title').val();
+		var imgUrl = $('.imgUrl').val();
+		var description = $('.description').val();
+		//set a variable for the object
+		$scope.newProject = {
+			title : title,
+			imgUrl : imgUrl,
+			description : description
+		};
 		// AngularFire $add method
 		$scope.projects.$add($scope.newProject);
 	}
