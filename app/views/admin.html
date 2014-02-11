@@ -1,4 +1,11 @@
-<input type="text" class="title" placeholder="Project Title"/>
-<input type="file" class="imgUrl" placeholder="Project Image"/>
-<textarea class="description" placeholder="Project Description"></textarea>
-<button ng-click="addProject">Submit</button>
+<div ng-controller="AdminCtrl">
+	<label>Project Title</label>
+	<input type="text" class="title" placeholder="Project Title"/>
+	<label>Project Image</label>
+	<input type="file" class="imgUrl"/>
+	<label>Project Description</label>
+	<textarea class="description" placeholder="Project Description"></textarea>
+	<button class="btn btn-lg btn-success" ng-click="addProject()">
+		Submit Project
+	</button>
+</div>

@@ -14,50 +14,21 @@ angular.module('mddApp').controller('ProjCtrl', function($scope, FireConn, $rout
 });
 
 angular.module('mddApp').controller('AdminCtrl', function($scope, FireConn, $routeParams) {
-	//push some data
-	var title = $('.title').val();
+	//get the values
+	var title = $('input.title').text();
 	var imgUrl = $('.imgUrl').val();
-	var description = $('.description').val();
-	
+	var description = $('.description').text();
+	//set a variable for the object
 	$scope.newProject = {
-		title: title,
-		imgUrl: imgUrl,
-		description: description
+		title : title,
+		imgUrl : imgUrl,
+		description : description
 	};
-	
-	$scope.addProject = function(){
-		$scope.projects.$add($scope.newProject);	
-	};
-	
-
-	 // For updates - being called on the green splendid button's ng-click
-
-	// $scope.saveData = function() {
-		// $scope.data.projects = [{
-			// title : 'Project 1',
-			// imgUrl : 'project1.jpg',
-			// description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-		// }, {
-			// title : 'Project 2',
-			// imgUrl : 'project2.jpg',
-			// description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-		// }, {
-			// title : 'Project 3',
-			// imgUrl : 'project3.jpg',
-			// description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-		// }, {
-			// title : 'Project 4',
-			// imgUrl : 'project4.jpg',
-			// description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-		// }, {
-			// title : 'Project 5',
-			// imgUrl : 'project5.jpg',
-			// description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-		// }, {
-			// title : 'Project 6',
-			// imgUrl : 'project6.jpg',
-			// description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-		// }]
-	// };
-
-}); 
+	//add the project
+	$scope.projects = FireConn.$child('projects');
+	$scope.addProject = function() {
+		console.log('running');
+		// AngularFire $add method
+		$scope.projects.$add($scope.newProject);
+	}
+});
