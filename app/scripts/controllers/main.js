@@ -18,7 +18,7 @@ angular.module('mddApp').controller('AdminCtrl', function($scope, FireConn, $rou
 	$scope.addProject = function() {
 		console.log('running');
 		var title = $('input.title').val();
-		var imgUrl = $('.imgUrl').val();
+		var imgUrl = $('input[type=file]').val().replace(/C:\\fakepath\\/i, '');
 		var description = $('.description').val();
 		//set a variable for the object
 		$scope.newProject = {
